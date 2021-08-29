@@ -1,3 +1,4 @@
+import { ComputingService } from 'src/app/service/computing.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Button3Component implements OnInit {
   additionNumber:number = 3;
-  constructor() { }
+  constructor(
+    public ComputingService:ComputingService) {
+   }
 
   ngOnInit(): void {
   }
   clickAdd3(){
-    
+    this.ComputingService.counterNumber = this.ComputingService.counterNumber + 3;
   }
 
 }
