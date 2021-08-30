@@ -17,7 +17,7 @@ export class CounterComponent implements OnInit {
     this.ComputingService.subject.subscribe(
       
       data =>{
-        this.log.push(data)
+        console.log(data)
       }
     )
   }
