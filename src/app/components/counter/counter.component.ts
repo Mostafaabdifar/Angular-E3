@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ComputingService } from 'src/app/service/computing.service';
 @Component({
@@ -6,17 +7,17 @@ import { ComputingService } from 'src/app/service/computing.service';
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent implements OnInit {
+  log:string[]=[];
   constructor(
     public ComputingService:ComputingService ) {
    }
 
   ngOnInit(): void {
-    setInterval(()=>{
-      this.ComputingService.counterNumber= this.ComputingService.counterNumber-1;
-    },1000)
+    this.ComputingService.Timer();
     this.ComputingService.subject.subscribe(
+      
       data =>{
-        console.log(data);
+        this.log.push(data)
       }
     )
   }
